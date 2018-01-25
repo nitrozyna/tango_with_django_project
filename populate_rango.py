@@ -70,6 +70,6 @@ def add_cat(name):
     return c
 
 # Start execution here!
-    if __name__ == '__main__':
-        print("Starting Rango population script...")
-        populate()
+if __name__ == '__main__':
+    print("Starting Rango population script...")
+    populate()
