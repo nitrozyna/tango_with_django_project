@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.shortcuts import render
 
 from django.http import HttpResponse
@@ -18,16 +15,18 @@ def index(request):
 
 	category_list = Category.objects.order_by('-likes')[:5]
 	page_list = Page.objects.order_by('-views')[:5]
-	context_dict = {'categories': category_list, 'boldmessage':'', 'pages':page_list}
+	context_dict = {'categories': category_list, 'pages':page_list}
 
 # Return a rendered response to send to the client. We make use of the shortcut function to make our lives easier.Note that the first parameter is the template we wish to use.
 
-	return render(request, 'rango/index.html', context=context_dict)
+	return render(request, 'rango/index.html', context_dict)
 
 
 def about(request):
 
-	return render(request, 'rango/about.html', context={'boldmessage':'This tutorial has been put together by Malgorzata Kurkiewicz.'})
+	context_dict = {'boldmessage':"This tutorial has been put together by Malgorzata Kurkiewicz."}
+
+	return render(request, 'rango/about.html', context = context_dict)
 
 def show_category(request, category_name_slug):
 	# Create a context dictionary which we can pass
