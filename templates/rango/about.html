@@ -11,11 +11,13 @@
 	<body>
 		<h1>Rango says...</h1>
 		<div>
-			This tutorial has been put together by Malgorzata Kurkiewicz.<br />
+			...welcome to the about page <br/>
+			<strong>{{ boldmessage }}</strong><br/>
 		</div>
 		<div>
-			<a href="/rango/">Index</a><br />
-			<img src="{{ MEDIA_URL}}cat.jpg" />
+			<a href="/rango/">Index</a><br/>
+			<img src="{{ MEDIA_URL}}cat.jpg"
+			 <img src="{% static "images/cat.jpg" %}" alt="Picture of a cat" />
 		</div>
 	</body>
 
