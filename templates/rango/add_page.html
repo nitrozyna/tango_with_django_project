@@ -1,29 +1,51 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Rango</title>
-	</head>
-	
-	<body>
-		{% if category %}
-		<h1>Add a Page</h1>
+{% extends 'rango/base.html' %}
+	{% load staticfiles %}
+	{% block title_block %}
+		Index
+	{% endblock %}
+
+	{% block body_block %}
+
+	<div>
+		<h1>Rango says...</h1>
+			<p>hey there partner! </p>
+		{% endif %}
+
+ 	</div>
+
 		<div>
-			
-			<form id="page_form" method="post" action="/rango/category/{{category.slug}}/add_page/">
-				{% csrf_token %}
-				{% for hidden in form.hidden_fields %}
-					{{ hidden }}
-				{% endfor %}
-				{% for field in form.visible_fields %}
-					{{ field.errors }}
-					{{ field.help_text }}
-					{{ field }}
-				{% endfor %}
-				<input type="submit" name="submit" value="Create Page" />
-			</form>
+			<div>
+				<h4>Most Liked Categories</h4>
+				<p>
+		         	{% if categories %}
+		             <ul>
+		                 {% for category in categories %}
+		                 	<li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a> <span>{{category.likes}}</span></li>
+		                 {% endfor %}
+		             </ul>
+		        {% else %}
+		             <strong>There are no categories present.</strong>
+		        {% endif %}
+
+				</p>
+
+			</div>
+			<div>
+				<h4>Most Viewed Pages</h4>
+				<p>
+				{% if pages %}
+				<ul >
+				{% for page in pages %}
+				 <li ><a href="{% url 'goto' %}?page_id={{page.id}}"\>{{ page.title }}</a> <span>{{page.views}}</span></li>
+				 {% endfor %}
+				 </ul>
+				{% else %}
+				<strong>There are no categories present.</strong>
+			 {% endif %}
+				</p>
+			</div>
 		</div>
-		{% else %}
-			The specifield category does not exist!
-		{% endif %}	
-	</body>
-</html>
+
+		<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+
+{% endblock %}
