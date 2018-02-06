@@ -1,5 +1,5 @@
 from django.contrib import admin
-
+from rango.models import UserProfile
 from rango.models import Category, Page
 
 class PageAdmin(admin.ModelAdmin):
