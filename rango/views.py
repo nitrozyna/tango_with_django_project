@@ -35,7 +35,6 @@ def about(request):
      #                       <a href="/rango/">Index</a>""")
          #return HttpResponse("""Rango says here is the about page.
      #                      <a href="/rango/">Index</a>""")
-    #context_dict = {'boldmessage': "This tutorial has been put together by Marija Mumm."}
     print(request.method)
     print(request.user)
     return render(request, 'rango/about.html', {})

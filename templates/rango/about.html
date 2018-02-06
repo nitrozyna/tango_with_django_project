@@ -1,21 +1,24 @@
 {% extends 'rango/base.html' %}
-	{% load staticfiles %}
-	{% block title_block %}
+{% load staticfiles %}
+{% block title_block %}
 		About
-	{% endblock %}
+{% endblock %}
 
-	{% block body_block %}
+{% block body_block %}
+				<h1>Rango says...</h1>
         <div>
-	        <h1 class="page-header">About Page</h1>
-		</div>
-		<img src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
-		<p>
+					here is the about page <br />
+					visits: {{visits}}<br />
+				</div>
+
+				<div>
+		<img style="display:block; width:500px; height:300px;" src="{% static "images/rango.jpg" %}" alt="Picture of Rango" />
+
 		<img src="{{ MEDIA_URL}}cat.jpg" alt="Picture of a CheShire cat" />
-		<p>
-		The image of the cat was taken from <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/CheshireCatGrin"></a>.
-	</p>
+
+  </div>
   <div>
     <br/>
-    This tutorial has been put together by Gosia
+    This tutorial has been put together by Gosia.
   </div>
 {% endblock %}
